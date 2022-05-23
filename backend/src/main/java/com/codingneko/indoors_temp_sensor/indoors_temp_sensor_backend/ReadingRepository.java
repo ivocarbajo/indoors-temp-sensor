@@ -1,6 +1,5 @@
-package com.codingneko.indoors_temp_sensor.backend;
+package com.codingneko.indoors_temp_sensor.indoors_temp_sensor_backend;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.Repository;
 
 import java.util.List;

@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.codingneko.indoors_temp_sensor</groupId>
-	<artifactId>backend</artifactId>
+	<artifactId>indoors_temp_sensor_backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>backend</name>
+	<name>indoors_temp_sensor_backend</name>
 	<description>indoors temperature sensor for ESP8266</description>
 	<properties>
 		<java.version>17</java.version>

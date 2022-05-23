@@ -1,4 +1,4 @@
-package com.codingneko.indoors_temp_sensor.backend;
+package com.codingneko.indoors_temp_sensor.indoors_temp_sensor_backend;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
