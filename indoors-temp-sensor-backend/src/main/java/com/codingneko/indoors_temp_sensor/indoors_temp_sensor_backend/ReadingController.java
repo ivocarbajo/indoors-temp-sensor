@@ -6,6 +6,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api/reading")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ReadingController {
     private final ReadingService readingService;
 
