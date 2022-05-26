@@ -1,6 +1,10 @@
-package com.codingneko.indoors_temp_sensor.indoors_temp_sensor_backend;
+package com.codingneko.indoors_temp_sensor.indoors_temp_sensor_backend.controller;
+import com.codingneko.indoors_temp_sensor.indoors_temp_sensor_backend.service.ReadingService;
+import com.codingneko.indoors_temp_sensor.indoors_temp_sensor_backend.model.Reading;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -20,7 +24,13 @@ public class ReadingController {
         return readingService.getReadings();
     }
 
-    @GetMapping(path = "latest")
+    @GetMapping(path = "importReadingsFrom")
+    public void importReadingsFrom(@RequestParam String url) {
+        readingService.importReadingsFrom(url);
+    }
+
+
+    @GetMapping(path = "getLatestReadings")
     public List<Reading> getLatestReadings() {
         return readingService.getLatestReadings();
     }

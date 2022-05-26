@@ -1,4 +1,4 @@
-package com.codingneko.indoors_temp_sensor.indoors_temp_sensor_backend;
+package com.codingneko.indoors_temp_sensor.indoors_temp_sensor_backend.model;
 
 import org.springframework.stereotype.Component;
 
