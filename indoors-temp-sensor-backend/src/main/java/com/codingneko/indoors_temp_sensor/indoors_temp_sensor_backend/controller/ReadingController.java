@@ -29,10 +29,14 @@ public class ReadingController {
         readingService.importReadingsFrom(url);
     }
 
-
     @GetMapping(path = "getLatestReadings")
     public List<Reading> getLatestReadings() {
         return readingService.getLatestReadings();
+    }
+
+    @GetMapping(path = "getLatestReadings", params = {"limit"})
+    public List<Reading> getLatestReadings(@RequestParam int limit) {
+        return readingService.getLatestReadings(limit);
     }
 
     @PostMapping
