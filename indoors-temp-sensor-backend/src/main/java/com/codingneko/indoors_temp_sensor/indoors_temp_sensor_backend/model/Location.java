@@ -19,7 +19,7 @@ public class Location {
     @GeneratedValue(
             strategy = GenerationType.AUTO
     )
-    private int Id;
+    private long Id;
     private String name;
     private Coordinates coordinates;
 
@@ -32,7 +32,7 @@ public class Location {
     public Location() {
     }
 
-    public int getId() {
+    public long getId() {
         return Id;
     }
 
