@@ -1,0 +1,32 @@
+<div class="row gy-3">
+    <div class="col-auto">
+        <div class="humidity indicator">
+            <mat-card>
+                <mat-card-title>
+                    <b>{{ reading.humidity }}%</b>
+                </mat-card-title>
+                <mat-card-content> Interior humidity </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    <div class="col-auto">
+        <div class="temperature indicator">
+            <mat-card>
+                <mat-card-title>
+                    <b>{{ reading.temperature }} ºC</b>
+                </mat-card-title>
+                <mat-card-content> Interior temperature </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    <div class="col-auto">
+        <div class="temperature indicator">
+            <mat-card>
+                <mat-card-title>
+                    <b>{{ reading.temperature - (100 - reading.humidity) / 5 }} ºC</b>
+                </mat-card-title>
+                <mat-card-content> Interior dew point </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

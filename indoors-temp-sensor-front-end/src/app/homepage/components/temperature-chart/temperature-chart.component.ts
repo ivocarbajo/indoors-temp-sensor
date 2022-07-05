@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Reading } from 'src/app/shared/reading.interface';
+import { Reading } from 'src/app/shared/reading.class';
 import { TempSensorBackendService } from 'src/app/shared/temp-sensor-backend.service';
 import { ApexAxisChartSeries, ApexChart, ApexNoData, ApexXAxis, ChartComponent } from 'ng-apexcharts';
 import { JsonpClientBackend } from '@angular/common/http';

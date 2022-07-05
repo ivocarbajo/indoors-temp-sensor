@@ -2,15 +2,19 @@ package com.codingneko.indoors_temp_sensor.indoors_temp_sensor_backend.service;
 
 import com.codingneko.indoors_temp_sensor.indoors_temp_sensor_backend.model.Reading;
 import com.codingneko.indoors_temp_sensor.indoors_temp_sensor_backend.repository.ReadingRepository;
+import com.codingneko.indoors_temp_sensor.indoors_temp_sensor_backend.utils.InvalidImportUrlException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.UnknownHostException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class ReadingService {
@@ -24,7 +28,7 @@ public class ReadingService {
     }
 
     public List<Reading> getReadings() {
-        return readingRepository.findAll();
+        return readingRepository.findAllByOrderByDateDesc();
     }
 
     public void addReading(Reading reading) {
@@ -32,20 +36,24 @@ public class ReadingService {
         readingRepository.save(reading);
     }
 
-    public void importReadingsFrom(String url) {
+    public void importReadingsFrom(String url) throws InvalidImportUrlException, UnknownHostException {
         List<Reading> readings = new ArrayList<>();
         ResponseEntity<Reading[]> response = restTemplate.getForEntity(url, Reading[].class);
 
-        try {
+        if (response.getBody() != null) {
             readings = List.of(response.getBody());
-        } catch (NullPointerException e) {
-            System.out.println("Data import function was run, but no readings could be imported because there were none or the request failed");
+        } else {
+            throw new InvalidImportUrlException();
         }
 
         readingRepository.saveAll(readings);
     }
 
     public List<Reading> getLatestReadings() {
-        return readingRepository.findTop100By();
+        return readingRepository.findTop100ByOrderByDateDesc();
+    }
+
+    public List<Reading> getLatestReadings(int limit) {
+        return readingRepository.findAllByOrderByDateDesc(PageRequest.of(0, limit));
     }
 }
