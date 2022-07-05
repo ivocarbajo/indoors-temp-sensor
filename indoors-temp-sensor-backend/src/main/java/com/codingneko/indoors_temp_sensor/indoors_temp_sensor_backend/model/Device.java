@@ -17,7 +17,7 @@ public class Device {
     @GeneratedValue(
             strategy = GenerationType.AUTO
     )
-    private int Id;
+    private long Id;
     @OneToMany
     private List<Reading> readings;
     @ManyToOne
@@ -32,7 +32,7 @@ public class Device {
     public Device() {
     }
 
-    public int getId() {
+    public long getId() {
         return Id;
     }
 

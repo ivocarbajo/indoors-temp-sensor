@@ -37,7 +37,7 @@ public class ReadingService {
     }
 
     public void importReadingsFrom(String url) throws InvalidImportUrlException, UnknownHostException {
-        List<Reading> readings = new ArrayList<>();
+        List<Reading> readings;
         ResponseEntity<Reading[]> response = restTemplate.getForEntity(url, Reading[].class);
 
         if (response.getBody() != null) {

@@ -18,7 +18,7 @@ public class Owner {
     @GeneratedValue(
             strategy = GenerationType.AUTO
     )
-    private int Id;
+    private long Id;
     private String fullName;
     @ElementCollection
     private List<Device> devices;
@@ -32,7 +32,7 @@ public class Owner {
     public Owner() {
     }
 
-    public int getId() {
+    public long getId() {
         return Id;
     }
 

@@ -17,7 +17,7 @@ public class Reading {
     @GeneratedValue(
             strategy = GenerationType.AUTO
     )
-    private int Id;
+    private long Id;
     private int temperature;
     private float humidity;
     private LocalDateTime date;
@@ -43,7 +43,7 @@ public class Reading {
                 '}';
     }
 
-    public int getId() {
+    public long getId() {
         return Id;
     }
 
