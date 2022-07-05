@@ -23,10 +23,6 @@ void loop() {
 
   // Send an HTTP POST request depending on timerDelay
   DHT_Reading dht_reading = getReading();
-
-  Serial.println(dht_reading.getHumidity());
-  Serial.println(dht_reading.getTemperature());
-
   jsonBuffer["temperature"] = dht_reading.getTemperature();
   jsonBuffer["humidity"] = dht_reading.getHumidity();
 
